@@ -24,3 +24,15 @@ BlueprintMod is a mod for Vectorio Remake, built using BepInEx and Unity. It pro
 
 ## License
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details. 
+
+## Community Blueprints
+
+You can contribute your own blueprints! Submit a pull request to the `blueprints` branch, adding your blueprint files to the `blueprints/` folder. See below for details.
+
+### How to Contribute
+1. Fork this repository and switch to the `blueprints` branch.
+2. Add your blueprint file(s) to the `blueprints/` directory (create it if it doesn't exist).
+3. Commit your changes and open a pull request targeting the `blueprints` branch.
+4. Please include a short description of your blueprint in your PR.
+
+Blueprints can be in any reasonable format (e.g., JSON, XML, or text) as used by the mod. 
