@@ -2,11 +2,10 @@ using BepInEx;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.IO;
-using System.Collections;
 using System.Collections.Generic;
 using Vectorio.Entities;
 
-[BepInPlugin("vectorio.blueprintimporter", "StorageGridBlueprintImporter", "1.2.0")]
+[BepInPlugin("vectorio.blueprintimporter", "StorageGridBlueprintImporter", "1.5.0")]
 public class StorageGridBlueprintImporterMain : BaseUnityPlugin
 {
     void Awake()
@@ -64,7 +63,6 @@ public class StorageGridBlueprintRunner : MonoBehaviour
             return;
         }
 
-        // Place top-left of blueprint under mouse cursor
         Vector3 mouseScreenPos = Input.mousePosition;
         mouseScreenPos.z = Mathf.Abs(Camera.main.transform.position.z);
         Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(mouseScreenPos);
@@ -73,16 +71,47 @@ public class StorageGridBlueprintRunner : MonoBehaviour
 
         Logger.LogInfo($"[StorageGridBlueprintImporter] Placing {width}x{height} blueprint at ({startX},{startY}) tile origin.");
 
+        // Robust placement for multi-cell and 1x1 entities, with anchor correction
+        bool[,] placed = new bool[height, width];
         for (int y = 0; y < height; y++)
         {
             for (int x = 0; x < width; x++)
             {
+                if (placed[y, x]) continue;
                 string id = entityGrid[y][x].Trim();
-                if (id != "" && id.ToLower() != "none")
+                if (id == "" || id.ToLower() == "none") continue;
+
+                int entityWidth = 1, entityHeight = 1;
+                var entityData = Library.RequestData<EntityData>(id);
+                if (entityData != null)
                 {
-                    Vector3Int pos = new Vector3Int(startX + x * TILE_SIZE, startY - y * TILE_SIZE, 0);
-                    QueueEntityBuild(id, pos);
+                    var buildingData = entityData.GetComponent<BuildingData>();
+                    if (buildingData != null)
+                    {
+                        entityWidth = buildingData.Width;
+                        entityHeight = buildingData.Height;
+                    }
                 }
+
+                // --- Correct placement for anchors (so big entities snap perfectly) ---
+                float offsetX = ((float)entityWidth / 2f - 0.5f) * TILE_SIZE;
+                float offsetY = -((float)entityHeight / 2f - 0.5f) * TILE_SIZE;
+
+                Vector3Int pos = new Vector3Int(
+                    startX + x * TILE_SIZE + Mathf.RoundToInt(offsetX),
+                    startY - y * TILE_SIZE + Mathf.RoundToInt(offsetY),
+                    0
+                );
+                QueueEntityBuild(id, pos);
+
+                // Mark all covered cells by this entity as "placed"
+                for (int dy = 0; dy < entityHeight; dy++)
+                    for (int dx = 0; dx < entityWidth; dx++)
+                    {
+                        int tx = x + dx, ty = y + dy;
+                        if (ty < height && tx < width)
+                            placed[ty, tx] = true;
+                    }
             }
         }
     }
@@ -151,75 +180,18 @@ public class StorageGridBlueprintRunner : MonoBehaviour
                 PosX = position.x,
                 PosY = position.y,
                 SyncType = SyncType.ServerInitiated,
-                IsBlueprint = true, // Place as blueprint
+                IsBlueprint = true,
                 ModelID = "default",
-                FactionID = Singleton<FactionManager>.Instance.PlayerFactionID
+                FactionID = Singleton<FactionManager>.Instance.PlayerFactionID,
+                EntityFlags = EntityFlags.IsEditable  // Key: always deletable!
             };
 
             var entityManager = Singleton<EntityManager>.Instance;
             entityManager.QueueCreationEvent(creationData);
-
-            // Ensure the blueprint and resulting built entity are editable/removable
-            StartCoroutine(MakeEditableNextFrame(new Vector2Int(position.x, position.y), entityData.ID));
         }
         catch (System.Exception ex)
         {
             Logger.LogError($"[StorageGridBlueprintImporter] Exception for '{entityName}' at {position}: {ex}");
-        }
-    }
-
-    IEnumerator MakeEditableNextFrame(Vector2Int gridPos, string entityTypeId)
-    {
-        yield return null; // Wait one frame for entity to spawn
-
-        var entityMgr = Singleton<EntityManager>.Instance;
-        if (entityMgr == null) yield break;
-
-        bool found = false;
-        foreach (var ent in entityMgr.Entities.Values)
-        {
-            Vector3 pos = ent.transform.position;
-            if (Mathf.RoundToInt(pos.x) == gridPos.x && Mathf.RoundToInt(pos.y) == gridPos.y && ent.ID == entityTypeId)
-            {
-                ent.Set_EFlag_IsEditable(true);
-                ent.Set_EFlag_IsDead(false);
-                ent.IsSaveable = true;
-                Logger.LogInfo($"[BlueprintImporter] Set entity/blueprint '{ent.ID}' at {gridPos} (blueprint? {ent.Has_EFlag_IsBlueprint}) to editable.");
-                found = true;
-                break;
-            }
-        }
-        if (!found)
-        {
-            Logger.LogWarning($"[BlueprintImporter] No entity found at {gridPos} with ID '{entityTypeId}' to make editable.");
-        }
-
-        // --- New: also make built entity editable after blueprint is completed --- 
-        StartCoroutine(MakeBuiltEditableWhenConstructed(gridPos, entityTypeId));
-    }
-
-    IEnumerator MakeBuiltEditableWhenConstructed(Vector2Int gridPos, string entityTypeId)
-    {
-        // Try for 10s, checking every 0.5s, in case construction takes time.
-        for (float timer = 0; timer < 10f; timer += 0.5f)
-        {
-            yield return new WaitForSeconds(0.5f);
-            var entityMgr = Singleton<EntityManager>.Instance;
-            if (entityMgr == null) yield break;
-
-            foreach (var ent in entityMgr.Entities.Values)
-            {
-                Vector3 pos = ent.transform.position;
-                if (Mathf.RoundToInt(pos.x) == gridPos.x && Mathf.RoundToInt(pos.y) == gridPos.y &&
-                    ent.ID == entityTypeId && !ent.Has_EFlag_IsBlueprint)
-                {
-                    ent.Set_EFlag_IsEditable(true);
-                    ent.Set_EFlag_IsDead(false);
-                    ent.IsSaveable = true;
-                    Logger.LogInfo($"[BlueprintImporter] Set built entity '{ent.ID}' at {gridPos} to editable after completion.");
-                    yield break;
-                }
-            }
         }
     }
 
