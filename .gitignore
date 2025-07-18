@@ -1,0 +1,54 @@
+# Build results
+bin/
+obj/
+*.user
+*.suo
+*.userprefs
+*.csproj.user
+*.pidb
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.VC.VC.opendb
+
+# Visual Studio
+.vs/
+*.dbmdl
+*.bak
+*.backup
+*.log
+*.vspscc
+*.vssscc
+*.tmp
+*.cache
+*.sln.docstates
+
+# Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+*.unityproj
+*.pidb
+*.booproj
+*.svd
+*.userprefs
+
+# BepInEx
+BepInEx/config/
+BepInEx/patchers/
+BepInEx/core/
+BepInEx/cache/
+BepInEx/packaged/
+BepInEx/LogOutput.log
+
+# OS generated
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon? 
