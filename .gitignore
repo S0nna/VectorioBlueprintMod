@@ -38,6 +38,7 @@ obj/
 *.booproj
 *.svd
 *.userprefs
+UnityEngine.CoreModule.dll
 
 # BepInEx
 BepInEx/config/
