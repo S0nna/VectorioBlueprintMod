@@ -1,107 +1,102 @@
-# BlueprintMod
+# Vectorio Community Blueprints
 
-BlueprintMod is a collection of mods for Vectorio Remake, built using BepInEx and Unity. It provides enhanced blueprinting tools for players, making it easier to copy, place, and manage blueprints in-game.
+This branch is dedicated to sharing blueprints created by the Vectorio community!
 
-## Features
+## How to Share Your Blueprints
 
-### BlueprintCopyTool
-- Copy and save blueprints from the game world
-- Efficient blueprint placement system
-- In-game UI integration for blueprint management
+### 1. Create a Blueprint File
+- Use the in-game blueprint copy tool (press `B` to start selection, then `Ctrl+C` to copy)
+- Your blueprint will be saved to `in.txt` in the BepInEx folder
+- The file will contain your blueprint data in the format:
+  ```
+  5x6;
+  none, none, none, none, none;
+  none, vec_collector, vec_collector, vec_collector, none;
+  none, vec_collector, vec_collector, vec_collector, none;
+  none, vec_collector, vec_collector, vec_collector, none;
+  none, vec_collector, vec_collector, vec_collector, none;
+  none, none, none, none, none;
+  ```
 
-### StorageGridBlueprintImporter
-- Import and manage storage grid blueprints
-- Drone route blueprint data handling
-- Advanced blueprint import functionality
+### 2. Submit Your Blueprint
+1. **Fork this repository**
+2. **Create a new file** in the `blueprints/` folder with a descriptive name
+3. **Copy your blueprint data** from `in.txt` into the new file
+4. **Add a description** at the top of the file explaining what the blueprint does
+5. **Submit a pull request** to this branch
 
-## Project Structure
+### 3. File Naming Convention
+Use descriptive names like:
+- `collector_array_5x6.txt`
+- `defense_turret_ring.txt`
+- `resource_processing_chain.txt`
+- `drone_logistics_hub.txt`
+
+### 4. Blueprint Description Format
+Start each blueprint file with a description:
 ```
-BlueprintMod/
-├── scripts/
-│   ├── StorageGridBlueprintCopyTool/
-│   │   ├── BlueprintCopyRunner.cs
-│   │   └── BlueprintCopyToolMain.cs
-│   └── StorageGridBlueprintImporter/
-│       ├── BlueprintImporterMain.cs
-│       ├── DroneRouteBlueprintData.cs
-│       └── StorageGridBlueprintRunner.cs
-├── BlueprintMod.csproj
-├── BlueprintMod.sln
-├── .gitignore
-├── LICENSE
-└── README.md
+# Collector Array 5x6
+# Description: A simple 5x6 collector array with drone routing
+# Author: YourName
+# Date: 2024-01-15
+# Tags: collectors, drones, basic
+
+5x6;
+none, none, none, none, none;
+none, vec_collector, vec_collector, vec_collector, none;
+...
 ```
 
-## Installation
+## How to Use Community Blueprints
 
-### Prerequisites
-- Vectorio Remake (Steam)
-- BepInEx mod loader installed
-- .NET Framework 4.8
+### Method 1: Console Mod (Recommended)
+1. Install the BlueprintMod
+2. Open the in-game console with `Shift + ~`
+3. Copy the blueprint data from a file in this repository
+4. Paste it directly into the console - it will auto-detect and save to `in.txt`
+5. The blueprint will be automatically imported into your game
 
-### Steps
-1. Build the project using Visual Studio or your preferred C# IDE
-2. Copy the generated `BlueprintMod.dll` from `bin/Release/` or `bin/Debug/`
-3. Place the DLL into your `BepInEx/plugins` folder in your Vectorio Remake installation directory
-4. Launch the game. The mods will load automatically
+### Method 2: Manual Copy
+1. Copy the blueprint data from a file in this repository
+2. Paste it into `in.txt` in your BepInEx folder
+3. The blueprint will be imported on the next game tick
 
-## Development
+## Blueprint Categories
 
-### Requirements
-- Visual Studio 2019 or later
-- .NET Framework 4.8
-- Vectorio Remake game files for references
-- BepInEx framework
+### 🏭 Production
+- Resource collectors and processors
+- Manufacturing chains
+- Power generation setups
 
-### Building
-1. Clone the repository
-2. Open `BlueprintMod.sln` in Visual Studio
-3. Ensure the project references point to your Vectorio Remake installation
-4. Build the solution (Debug or Release configuration)
+### 🛡️ Defense
+- Turret arrays
+- Shield configurations
+- Defensive walls and barriers
 
-### Dependencies
-- **Assembly-CSharp.dll** - Vectorio Remake game assembly
-- **BepInEx.dll** - Mod loader framework
-- **UnityEngine.dll** - Unity engine core
-- Various Unity modules (Audio, Grid, IMGUI, Input, Tilemap)
+### 🚁 Logistics
+- Drone routing networks
+- Storage and distribution systems
+- Transport hubs
 
-## Usage
+### 🏗️ Infrastructure
+- Base layouts
+- Research facilities
+- Utility buildings
 
-### BlueprintCopyTool
-- Use in-game hotkeys or UI to copy blueprints
-- Access blueprint management through the mod's interface
+## Contributing Guidelines
 
-### StorageGridBlueprintImporter
-- Import storage grid configurations
-- Manage drone route blueprints
-- Configure import settings through the mod interface
+- **Test your blueprints** before sharing
+- **Include clear descriptions** of what the blueprint does
+- **Use appropriate tags** to help others find your blueprints
+- **Keep file sizes reasonable** - split large blueprints if needed
+- **Respect the community** - no offensive or inappropriate content
 
-## Configuration
+## Getting Help
 
-### Mod Configuration
-Both mods support configuration through BepInEx's config system. Check the `BepInEx/config/` folder for generated configuration files.
+- Join the Vectorio Discord for blueprint discussions
+- Check the main branch for mod installation instructions
+- Report issues with specific blueprints in the repository issues
 
-## Troubleshooting
+---
 
-### Mod Issues
-- Ensure BepInEx is properly installed and configured
-- Check the BepInEx log file for any error messages
-- Verify all required Unity modules are available
-- Make sure the mod DLL is placed in the correct plugins folder
-
-## Security Notes
-- Don't commit sensitive configuration files to version control
-- The `.gitignore` file is configured to exclude sensitive files and build artifacts
-
-## License
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
-
-## Contributing
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly with Vectorio Remake
-5. Submit a pull request
-
-## Version History
-- **1.0.0** - Initial release with BlueprintCopyTool and StorageGridBlueprintImporter 
+**Happy blueprinting! 🎮** 

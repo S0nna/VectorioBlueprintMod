@@ -1,0 +1,13 @@
+# Collector Array 5x6
+# Description: A simple 5x6 collector array with drone routing
+# Author: Community Example
+# Date: 2024-01-15
+# Tags: collectors, drones, basic, production
+
+5x6;
+none, none, none, none, none;
+none, vec_collector, vec_collector, vec_collector, none;
+none, vec_collector, vec_collector, vec_collector, none;
+none, vec_collector, vec_collector, vec_collector, none;
+none, vec_collector, vec_collector, vec_collector, none;
+none, none, none, none, none; 

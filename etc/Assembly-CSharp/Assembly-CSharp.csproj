@@ -1,0 +1,733 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2100B898-7C41-4FEE-83E5-D01C5AF96F46}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Assembly-CSharp</RootNamespace>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="com.rlabrecque.steamworks.net">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Vectorio\Vectorio Remake_Data\Managed\com.rlabrecque.steamworks.net.dll</HintPath>
+    </Reference>
+    <Reference Include="FishNet.Runtime">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Vectorio\Vectorio Remake_Data\Managed\FishNet.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Heathen.Steamworks">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Vectorio\Vectorio Remake_Data\Managed\Heathen.Steamworks.dll</HintPath>
+    </Reference>
+    <Reference Include="MK.Glow">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Vectorio\Vectorio Remake_Data\Managed\MK.Glow.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Vectorio\Vectorio Remake_Data\Managed\netstandard.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Vectorio\Vectorio Remake_Data\Managed\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Vectorio\Vectorio Remake_Data\Managed\Unity.Burst.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InputSystem">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Vectorio\Vectorio Remake_Data\Managed\Unity.InputSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Vectorio\Vectorio Remake_Data\Managed\Unity.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Vectorio\Vectorio Remake_Data\Managed\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Vectorio\Vectorio Remake_Data\Managed\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Vectorio\Vectorio Remake_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Core">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Vectorio\Vectorio Remake_Data\Managed\Unity.VisualScripting.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Vectorio\Vectorio Remake_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Vectorio\Vectorio Remake_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Vectorio\Vectorio Remake_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Vectorio\Vectorio Remake_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Vectorio\Vectorio Remake_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Vectorio\Vectorio Remake_Data\Managed\UnityEngine.JSONSerializeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Vectorio\Vectorio Remake_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Vectorio\Vectorio Remake_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Vectorio\Vectorio Remake_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Vectorio\Vectorio Remake_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TilemapModule">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Vectorio\Vectorio Remake_Data\Managed\UnityEngine.TilemapModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Vectorio\Vectorio Remake_Data\Managed\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Vectorio\Vectorio Remake_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VideoModule">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Vectorio\Vectorio Remake_Data\Managed\UnityEngine.VideoModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accent.cs" />
+    <Compile Include="AccentData.cs" />
+    <Compile Include="AccentType.cs" />
+    <Compile Include="ActiveResearchTechUI.cs" />
+    <Compile Include="AmmoBin.cs" />
+    <Compile Include="AmmoBinData.cs" />
+    <Compile Include="AnimationGroup.cs" />
+    <Compile Include="AnimationManager.cs" />
+    <Compile Include="AttackWarning.cs" />
+    <Compile Include="AudioPlayer.cs" />
+    <Compile Include="Authenticator.cs" />
+    <Compile Include="AuthEvents.cs" />
+    <Compile Include="AutoSave.cs" />
+    <Compile Include="BaseComponent.cs" />
+    <Compile Include="BaseData.cs" />
+    <Compile Include="Beacon.cs" />
+    <Compile Include="BeaconData.cs" />
+    <Compile Include="BeaconMetadata.cs" />
+    <Compile Include="BeaconSettings.cs" />
+    <Compile Include="BinaryDataWrapper.cs" />
+    <Compile Include="BlinkingText.cs" />
+    <Compile Include="Blueprint.cs" />
+    <Compile Include="BlueprintMetadata.cs" />
+    <Compile Include="Booster.cs" />
+    <Compile Include="BoosterData.cs" />
+    <Compile Include="Bootstrap.cs" />
+    <Compile Include="Border.cs" />
+    <Compile Include="BorderZone.cs" />
+    <Compile Include="BossMusic.cs" />
+    <Compile Include="BuilderDrone.cs" />
+    <Compile Include="BuilderDroneData.cs" />
+    <Compile Include="Building.cs" />
+    <Compile Include="BuildingComponent.cs" />
+    <Compile Include="BuildingData.cs" />
+    <Compile Include="BuildPlanner.cs" />
+    <Compile Include="Bullet.cs" />
+    <Compile Include="BulletData.cs" />
+    <Compile Include="BulletDetector.cs" />
+    <Compile Include="BulletMetadata.cs" />
+    <Compile Include="CallbackManager.cs" />
+    <Compile Include="CallbackRegistry.cs" />
+    <Compile Include="CameraFollow.cs" />
+    <Compile Include="CardinalDirection.cs" />
+    <Compile Include="CargoDrone.cs" />
+    <Compile Include="CargoDroneMetadata.cs" />
+    <Compile Include="Category.cs" />
+    <Compile Include="CategoryButton.cs" />
+    <Compile Include="CellData.cs" />
+    <Compile Include="CheckType.cs" />
+    <Compile Include="Claimer.cs" />
+    <Compile Include="ClaimerData.cs" />
+    <Compile Include="ClickThru.cs" />
+    <Compile Include="ClientStateManager.cs" />
+    <Compile Include="ClientSyncManager.cs" />
+    <Compile Include="Collector.cs" />
+    <Compile Include="CollectorData.cs" />
+    <Compile Include="CollectorDroneData.cs" />
+    <Compile Include="ColorPalette.cs" />
+    <Compile Include="ComponentData.cs" />
+    <Compile Include="ComponentDataBase.cs" />
+    <Compile Include="ComponentMetadata.cs" />
+    <Compile Include="ComponentMetadataWrapper.cs" />
+    <Compile Include="ContainerCreationData.cs" />
+    <Compile Include="ContainerFlags.cs" />
+    <Compile Include="ContainerType.cs" />
+    <Compile Include="ControlModeUI.cs" />
+    <Compile Include="CoreData.cs" />
+    <Compile Include="CosmeticButton.cs" />
+    <Compile Include="CosmeticPanel.cs" />
+    <Compile Include="Cost.cs" />
+    <Compile Include="CostData.cs" />
+    <Compile Include="CoverageArea.cs" />
+    <Compile Include="CoverageType.cs" />
+    <Compile Include="Crafter.cs" />
+    <Compile Include="CrafterData.cs" />
+    <Compile Include="CustomSteamworks.cs" />
+    <Compile Include="C_EntityCreationData.cs" />
+    <Compile Include="C_EntityMetadataEvent.cs" />
+    <Compile Include="DamageNumber.cs" />
+    <Compile Include="DecryptionInterface.cs" />
+    <Compile Include="DecryptionUI.cs" />
+    <Compile Include="Decryptor.cs" />
+    <Compile Include="DecryptorData.cs" />
+    <Compile Include="DecryptorMetadata.cs" />
+    <Compile Include="DecryptorSettings.cs" />
+    <Compile Include="DemoMenu.cs" />
+    <Compile Include="DentedPixel\LeanDummy.cs" />
+    <Compile Include="DentedPixel\LTExamples\PathBezier.cs" />
+    <Compile Include="DentedPixel\LTExamples\TestingUnitTests.cs" />
+    <Compile Include="DevTools.cs" />
+    <Compile Include="DistanceCache.cs" />
+    <Compile Include="Drone.cs" />
+    <Compile Include="DroneAction.cs" />
+    <Compile Include="DroneActionPackage.cs" />
+    <Compile Include="DroneCoverage.cs" />
+    <Compile Include="DroneData.cs" />
+    <Compile Include="DroneManager.cs" />
+    <Compile Include="DroneMetadata.cs" />
+    <Compile Include="DronePad.cs" />
+    <Compile Include="DroneRouteGenerator.cs" />
+    <Compile Include="DroneSettings.cs" />
+    <Compile Include="EffectData.cs" />
+    <Compile Include="EmptySprite.cs" />
+    <Compile Include="EnemySpawn.cs" />
+    <Compile Include="Entity.cs" />
+    <Compile Include="EntityCallbackEvent.cs" />
+    <Compile Include="EntityComponent.cs" />
+    <Compile Include="EntityDamageEvent.cs" />
+    <Compile Include="EntityData.cs" />
+    <Compile Include="EntityDestroyEvent.cs" />
+    <Compile Include="EntityDetector.cs" />
+    <Compile Include="EntityFlags.cs" />
+    <Compile Include="EntityInfo.cs" />
+    <Compile Include="EntityInfoUI.cs" />
+    <Compile Include="EntityManager.cs" />
+    <Compile Include="EntityMetadata.cs" />
+    <Compile Include="EntityMetadataEvent.cs" />
+    <Compile Include="EntityOptions.cs" />
+    <Compile Include="EntityRenderer.cs" />
+    <Compile Include="EntitySettings.cs" />
+    <Compile Include="EntityStatus.cs" />
+    <Compile Include="Events.cs" />
+    <Compile Include="ExampleSpline.cs" />
+    <Compile Include="E_ID.cs" />
+    <Compile Include="FactionButton.cs" />
+    <Compile Include="FactionData.cs" />
+    <Compile Include="FactionManager.cs" />
+    <Compile Include="Filter.cs" />
+    <Compile Include="FilterButton.cs" />
+    <Compile Include="FilterData.cs" />
+    <Compile Include="FishNet\Discovery\NetworkDiscovery.cs" />
+    <Compile Include="FishNet\Discovery\NetworkDiscoveryHud.cs" />
+    <Compile Include="FishNet\Serializing\Generated\GeneratedComparers___Internal.cs" />
+    <Compile Include="FishNet\Serializing\Generated\GeneratedReaders___Internal.cs" />
+    <Compile Include="FishNet\Serializing\Generated\GeneratedWriters___Internal.cs" />
+    <Compile Include="FishySteamworks\BidirectionalDictionary.cs" />
+    <Compile Include="FishySteamworks\Client\ClientHostSocket.cs" />
+    <Compile Include="FishySteamworks\Client\ClientSocket.cs" />
+    <Compile Include="FishySteamworks\CommonSocket.cs" />
+    <Compile Include="FishySteamworks\FishySteamworks.cs" />
+    <Compile Include="FishySteamworks\LocalPacket.cs" />
+    <Compile Include="FishySteamworks\Server\ServerSocket.cs" />
+    <Compile Include="FogOfWarHandler.cs" />
+    <Compile Include="Following.cs" />
+    <Compile Include="FOW\Demos\BlinkingRevealer.cs" />
+    <Compile Include="FOW\Demos\FowCharacterDemo.cs" />
+    <Compile Include="FOW\Demos\TeamsDemo.cs" />
+    <Compile Include="FOW\FogOfWarHider.cs" />
+    <Compile Include="FOW\FogOfWarPass.cs" />
+    <Compile Include="FOW\FogOfWarRenderFeature.cs" />
+    <Compile Include="FOW\FogOfWarRevealer.cs" />
+    <Compile Include="FOW\FogOfWarRevealer2D.cs" />
+    <Compile Include="FOW\FogOfWarRevealer3D.cs" />
+    <Compile Include="FOW\FogOfWarWorld.cs" />
+    <Compile Include="FOW\GenerateInvertedCollider.cs" />
+    <Compile Include="FOW\HiderBehavior.cs" />
+    <Compile Include="FOW\HiderDisableObjects.cs" />
+    <Compile Include="FOW\HiderDisableRenderers.cs" />
+    <Compile Include="FOW\HiderToggleObjects.cs" />
+    <Compile Include="FOW\MiniMapFrustum.cs" />
+    <Compile Include="FOW\MiniMapZoomable.cs" />
+    <Compile Include="FOW\PartialHider.cs" />
+    <Compile Include="FOW\RevealerDebug.cs" />
+    <Compile Include="FOW\SightIteration.cs" />
+    <Compile Include="FOW_Cloak.cs" />
+    <Compile Include="FreeModifier.cs" />
+    <Compile Include="Friendlist.cs" />
+    <Compile Include="Gamemode.cs" />
+    <Compile Include="GamemodeData.cs" />
+    <Compile Include="GamemodeOptions.cs" />
+    <Compile Include="GamemodeRules.cs" />
+    <Compile Include="GamemodeSaveData.cs" />
+    <Compile Include="GameServer.cs" />
+    <Compile Include="Gateway.cs" />
+    <Compile Include="GatewayData.cs" />
+    <Compile Include="GeneralAdvancedTechniques.cs" />
+    <Compile Include="GeneralBasic.cs" />
+    <Compile Include="GeneralBasics2d.cs" />
+    <Compile Include="GeneralCameraShake.cs" />
+    <Compile Include="GeneralEasingTypes.cs" />
+    <Compile Include="GeneralEventsListeners.cs" />
+    <Compile Include="GeneralSequencer.cs" />
+    <Compile Include="GeneralSimpleUI.cs" />
+    <Compile Include="GeneralUISpace.cs" />
+    <Compile Include="Generator.cs" />
+    <Compile Include="GeneratorData.cs" />
+    <Compile Include="GeneratorMetadata.cs" />
+    <Compile Include="GenericDict.cs" />
+    <Compile Include="GridLayer.cs" />
+    <Compile Include="GridSnap.cs" />
+    <Compile Include="GroupWarning.cs" />
+    <Compile Include="Guardian.cs" />
+    <Compile Include="GuardianMetadata.cs" />
+    <Compile Include="HealthComponent.cs" />
+    <Compile Include="HealthData.cs" />
+    <Compile Include="HeatEntityUI.cs" />
+    <Compile Include="HeatLevelUI.cs" />
+    <Compile Include="HeatManager.cs" />
+    <Compile Include="HeatManagerUI.cs" />
+    <Compile Include="HeatSector.cs" />
+    <Compile Include="HeatSpawnUI.cs" />
+    <Compile Include="HeatUI.cs" />
+    <Compile Include="HitDetector.cs" />
+    <Compile Include="Hive.cs" />
+    <Compile Include="HiveData.cs" />
+    <Compile Include="Hologram.cs" />
+    <Compile Include="Hotbar.cs" />
+    <Compile Include="HotbarData.cs" />
+    <Compile Include="HotbarElement.cs" />
+    <Compile Include="Hub.cs" />
+    <Compile Include="HubData.cs" />
+    <Compile Include="IAnimateable.cs" />
+    <Compile Include="ICallbackListener.cs" />
+    <Compile Include="IComponent.cs" />
+    <Compile Include="IComponentData.cs" />
+    <Compile Include="IconData.cs" />
+    <Compile Include="Illuminator.cs" />
+    <Compile Include="IlluminatorData.cs" />
+    <Compile Include="IMouseListener.cs" />
+    <Compile Include="Indicator.cs" />
+    <Compile Include="InfiniteGrid.cs" />
+    <Compile Include="InputController.cs" />
+    <Compile Include="InputManager.cs" />
+    <Compile Include="Inventory.cs" />
+    <Compile Include="InventoryButton.cs" />
+    <Compile Include="InventoryPanel.cs" />
+    <Compile Include="InventoryRow.cs" />
+    <Compile Include="ISyncListener.cs" />
+    <Compile Include="IUpdateable.cs" />
+    <Compile Include="KeybindButton.cs" />
+    <Compile Include="Lab.cs" />
+    <Compile Include="LabData.cs" />
+    <Compile Include="LanguageData.cs" />
+    <Compile Include="Layers.cs" />
+    <Compile Include="LeanAudio.cs" />
+    <Compile Include="LeanAudioOptions.cs" />
+    <Compile Include="LeanAudioStream.cs" />
+    <Compile Include="LeanProp.cs" />
+    <Compile Include="LeanSmooth.cs" />
+    <Compile Include="LeanTest.cs" />
+    <Compile Include="LeanTester.cs" />
+    <Compile Include="LeanTween.cs" />
+    <Compile Include="LeanTweenExt.cs" />
+    <Compile Include="LeanTweenType.cs" />
+    <Compile Include="LegacyLibrary.cs" />
+    <Compile Include="Level.cs" />
+    <Compile Include="LevelButton.cs" />
+    <Compile Include="Librarian.cs" />
+    <Compile Include="Library.cs" />
+    <Compile Include="LoadingUI.cs" />
+    <Compile Include="Lobby.cs" />
+    <Compile Include="LobbyList.cs" />
+    <Compile Include="LogisticsManager.cs" />
+    <Compile Include="LogoCinematic.cs" />
+    <Compile Include="LTBezier.cs" />
+    <Compile Include="LTBezierPath.cs" />
+    <Compile Include="LTDescr.cs" />
+    <Compile Include="LTDescrOptional.cs" />
+    <Compile Include="LTEvent.cs" />
+    <Compile Include="LTGUI.cs" />
+    <Compile Include="LTRect.cs" />
+    <Compile Include="LTSeq.cs" />
+    <Compile Include="LTSpline.cs" />
+    <Compile Include="LTUtility.cs" />
+    <Compile Include="MainCamera.cs" />
+    <Compile Include="Map.cs" />
+    <Compile Include="MapView.cs" />
+    <Compile Include="Marker.cs" />
+    <Compile Include="MarkerButton.cs" />
+    <Compile Include="MarkerHandler.cs" />
+    <Compile Include="Menu.cs" />
+    <Compile Include="MenuButton.cs" />
+    <Compile Include="MenuController.cs" />
+    <Compile Include="MenuScene.cs" />
+    <Compile Include="MetadataContext.cs" />
+    <Compile Include="MetadataForAttribute.cs" />
+    <Compile Include="MetadataTypeCache.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\AnimatedIconHandler.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\ButtonManager.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\ButtonManagerBasic.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\ButtonManagerBasicIcon.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\ButtonManagerBasicWithIcon.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\ButtonManagerIcon.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\ButtonManagerWithIcon.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\ContextMenuContent.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\ContextMenuContentMobile.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\ContextMenuManager.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\ContextMenuSubMenu.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\CustomDropdown.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\CustomInputField.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\CustomToggle.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\DemoElementSway.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\DemoElementSwayParent.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\DemoListShadow.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\DropdownMultiSelect.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\HorizontalSelector.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\IconLibrary.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\IconManager.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\InputSystemChecker.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\LaunchURL.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\ListView.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\ListViewItem.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\ListViewRow.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\ModalWindowManager.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\NotificationManager.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\NotificationStacking.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\PBFilled.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\PieChart.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\ProgressBar.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\RadialLayoutGroup.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\RadialSlider.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\RangeMaxSlider.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\RangeMinSlider.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\RangeSlider.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\Ripple.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\SliderManager.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\SwitchManager.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\TooltipContent.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\TooltipManager.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\UIGradient.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\UIManager.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\UIManagerAnimatedIcon.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\UIManagerButton.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\UIManagerContextMenu.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\UIManagerDropdown.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\UIManagerDropdownItem.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\UIManagerHSelector.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\UIManagerInputField.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\UIManagerModalWindow.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\UIManagerNotification.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\UIManagerPieChart.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\UIManagerProgressBar.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\UIManagerProgressBarLoop.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\UIManagerScrollbar.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\UIManagerSlider.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\UIManagerSwitch.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\UIManagerToggle.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\UIManagerTooltip.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\UIManagerWindowManager.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\WindowDragger.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\WindowManager.cs" />
+    <Compile Include="Michsky\UI\ModernUIPack\WindowManagerButton.cs" />
+    <Compile Include="Minimap.cs" />
+    <Compile Include="MinimapUI.cs" />
+    <Compile Include="Missile.cs" />
+    <Compile Include="ModeButton.cs" />
+    <Compile Include="Model.cs" />
+    <Compile Include="ModelConstructor.cs" />
+    <Compile Include="ModelObject.cs" />
+    <Compile Include="ModelSprite.cs" />
+    <Compile Include="ModifierData.cs" />
+    <Compile Include="MusicPlayer.cs" />
+    <Compile Include="NetworkBootstrap.cs" />
+    <Compile Include="NetworkEventBase.cs" />
+    <Compile Include="NetworkEventPackage.cs" />
+    <Compile Include="NetworkEvents.cs" />
+    <Compile Include="NetworkPackageValidator.cs" />
+    <Compile Include="NetworkPlayerManager.cs" />
+    <Compile Include="NetworkSingleton.cs" />
+    <Compile Include="NewRouteGenerator.cs" />
+    <Compile Include="NewUnlock.cs" />
+    <Compile Include="NewWorldPanel.cs" />
+    <Compile Include="NodeData.cs" />
+    <Compile Include="NodeEnumAttribute.cs" />
+    <Compile Include="NodeType.cs" />
+    <Compile Include="Noise.cs" />
+    <Compile Include="OldGUIExamplesCS.cs" />
+    <Compile Include="OnlyOneEdgeModifier.cs" />
+    <Compile Include="OutpostCore.cs" />
+    <Compile Include="OutpostCreator.cs" />
+    <Compile Include="OutpostData.cs" />
+    <Compile Include="OutpostGenerator.cs" />
+    <Compile Include="Pad.cs" />
+    <Compile Include="ParticleInfo.cs" />
+    <Compile Include="ParticleManager.cs" />
+    <Compile Include="PathBezier2d.cs" />
+    <Compile Include="PathSpline2d.cs" />
+    <Compile Include="PathSplineEndless.cs" />
+    <Compile Include="PathSplinePerformance.cs" />
+    <Compile Include="PathSplines.cs" />
+    <Compile Include="PathSplineTrack.cs" />
+    <Compile Include="PauseMenu.cs" />
+    <Compile Include="PersistentObject.cs" />
+    <Compile Include="PlacementRules.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="PlayerData.cs" />
+    <Compile Include="PlayerJoining.cs" />
+    <Compile Include="Port.cs" />
+    <Compile Include="PortData.cs" />
+    <Compile Include="PortDoors.cs" />
+    <Compile Include="PowerModule.cs" />
+    <Compile Include="PowerOutageUI.cs" />
+    <Compile Include="PowerUI.cs" />
+    <Compile Include="PresetButton.cs" />
+    <Compile Include="PresetData.cs" />
+    <Compile Include="PreviewEntity.cs" />
+    <Compile Include="Priority.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueuedBlueprint.cs" />
+    <Compile Include="Radar.cs" />
+    <Compile Include="RadarData.cs" />
+    <Compile Include="RangeViewer.cs" />
+    <Compile Include="Reactor.cs" />
+    <Compile Include="ReactorData.cs" />
+    <Compile Include="RecipeButton.cs" />
+    <Compile Include="RecipeData.cs" />
+    <Compile Include="RecipeInfo.cs" />
+    <Compile Include="RecipeSettings.cs" />
+    <Compile Include="RegionBooster.cs" />
+    <Compile Include="RegionBoosterData.cs" />
+    <Compile Include="RegionChangeEvent.cs" />
+    <Compile Include="RegionData.cs" />
+    <Compile Include="RegionGateway.cs" />
+    <Compile Include="RegionManager.cs" />
+    <Compile Include="Research.cs" />
+    <Compile Include="ResearchChangeEvent.cs" />
+    <Compile Include="ResearchTechButton.cs" />
+    <Compile Include="ResearchTechData.cs" />
+    <Compile Include="ResearchTest.cs" />
+    <Compile Include="ResearchTreeButton.cs" />
+    <Compile Include="ResearchTreeData.cs" />
+    <Compile Include="ResearchType.cs" />
+    <Compile Include="ResourceAction.cs" />
+    <Compile Include="ResourceAmount.cs" />
+    <Compile Include="ResourceAmountUI.cs" />
+    <Compile Include="ResourceComponent.cs" />
+    <Compile Include="ResourceComponentData.cs" />
+    <Compile Include="ResourceContainer.cs" />
+    <Compile Include="ResourceData.cs" />
+    <Compile Include="ResourceHoverInfo.cs" />
+    <Compile Include="ResourceManager.cs" />
+    <Compile Include="ResourceModule.cs" />
+    <Compile Include="ResourceModuleMetadata.cs" />
+    <Compile Include="ResourcePlacer.cs" />
+    <Compile Include="ResourcePlacerData.cs" />
+    <Compile Include="ResourceTooltip.cs" />
+    <Compile Include="Rotator.cs" />
+    <Compile Include="RotatorData.cs" />
+    <Compile Include="RoundModifier.cs" />
+    <Compile Include="RouteScheduler.cs" />
+    <Compile Include="SaveButton.cs" />
+    <Compile Include="SaveData.cs" />
+    <Compile Include="SavedSettingConverter.cs" />
+    <Compile Include="SaveList.cs" />
+    <Compile Include="SavePreviewer.cs" />
+    <Compile Include="SaveSystem.cs" />
+    <Compile Include="SaveValidationResult.cs" />
+    <Compile Include="SaveValidator.cs" />
+    <Compile Include="ScaleRectTransform.cs" />
+    <Compile Include="SceneBuilder.cs" />
+    <Compile Include="ScrollTexture.cs" />
+    <Compile Include="Scythe.cs" />
+    <Compile Include="ScytheData.cs" />
+    <Compile Include="ScytheProjectile.cs" />
+    <Compile Include="SectorText.cs" />
+    <Compile Include="Seed.cs" />
+    <Compile Include="SelectedDictionary.cs" />
+    <Compile Include="SelectedEntity.cs" />
+    <Compile Include="SelectedUI.cs" />
+    <Compile Include="Selector.cs" />
+    <Compile Include="SerializableData.cs" />
+    <Compile Include="SerializiableDict.cs" />
+    <Compile Include="ServerManager.cs" />
+    <Compile Include="ServerSingleton.cs" />
+    <Compile Include="ServerStateManager.cs" />
+    <Compile Include="ServerSyncManager.cs" />
+    <Compile Include="SettingCategory.cs" />
+    <Compile Include="SettingOption_Base.cs" />
+    <Compile Include="SettingOption_Flag.cs" />
+    <Compile Include="SettingOption_Float.cs" />
+    <Compile Include="SettingOption_Header.cs" />
+    <Compile Include="SettingOption_Int.cs" />
+    <Compile Include="SettingOption_Keybind.cs" />
+    <Compile Include="SettingOption_Vector.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="SettingsData.cs" />
+    <Compile Include="SettingsType.cs" />
+    <Compile Include="SettingsUI.cs" />
+    <Compile Include="Shield.cs" />
+    <Compile Include="Shielder.cs" />
+    <Compile Include="ShielderData.cs" />
+    <Compile Include="Singleton.cs" />
+    <Compile Include="SpawnableData.cs" />
+    <Compile Include="Spawner.cs" />
+    <Compile Include="SpriteLayer.cs" />
+    <Compile Include="StartingAnimation.cs" />
+    <Compile Include="StatInfo.cs" />
+    <Compile Include="StatLibrary.cs" />
+    <Compile Include="StatList.cs" />
+    <Compile Include="StatModifierUI.cs" />
+    <Compile Include="StatUI.cs" />
+    <Compile Include="Storage.cs" />
+    <Compile Include="StorageData.cs" />
+    <Compile Include="StorageMode.cs" />
+    <Compile Include="StorageSettings.cs" />
+    <Compile Include="StoredResource.cs" />
+    <Compile Include="StoredResourceInfo.cs" />
+    <Compile Include="SyncEvent.cs" />
+    <Compile Include="TechReward.cs" />
+    <Compile Include="TechStatus.cs" />
+    <Compile Include="TempBackdrop.cs" />
+    <Compile Include="TestingPunch.cs" />
+    <Compile Include="TestingRigidbodyCS.cs" />
+    <Compile Include="TestingZLegacy.cs" />
+    <Compile Include="TestingZLegacyExt.cs" />
+    <Compile Include="TestLab.cs" />
+    <Compile Include="TestLabData.cs" />
+    <Compile Include="TileDesign.cs" />
+    <Compile Include="TileDesignData.cs" />
+    <Compile Include="TileGrid.cs" />
+    <Compile Include="TileLayer.cs" />
+    <Compile Include="TilePlacer.cs" />
+    <Compile Include="TilePlacerData.cs" />
+    <Compile Include="Translator.cs" />
+    <Compile Include="Turret.cs" />
+    <Compile Include="TurretData.cs" />
+    <Compile Include="TurretMetadata.cs" />
+    <Compile Include="TurretModeButton.cs" />
+    <Compile Include="TurretSettings.cs" />
+    <Compile Include="TutoralButton.cs" />
+    <Compile Include="TutorialData.cs" />
+    <Compile Include="TutorialManager.cs" />
+    <Compile Include="TweenAction.cs" />
+    <Compile Include="UIScaler.cs" />
+    <Compile Include="UI_GlobalResourceValue.cs" />
+    <Compile Include="UI_Legacy_ResourceAmount.cs" />
+    <Compile Include="UI_ResourceTechRequirement.cs" />
+    <Compile Include="UniformModifier.cs" />
+    <Compile Include="Unit.cs" />
+    <Compile Include="UnitData.cs" />
+    <Compile Include="UnitMetadata.cs" />
+    <Compile Include="UnityEngine\UI\ProceduralImage\ModifierID.cs" />
+    <Compile Include="UnityEngine\UI\ProceduralImage\ProceduralImage.cs" />
+    <Compile Include="UnityEngine\UI\ProceduralImage\ProceduralImageInfo.cs" />
+    <Compile Include="UnityEngine\UI\ProceduralImage\ProceduralImageModifier.cs" />
+    <Compile Include="UnitySourceGeneratedAssemblyMonoScriptTypes_v1.cs" />
+    <Compile Include="UpgradeData.cs" />
+    <Compile Include="UtilityButton.cs" />
+    <Compile Include="Vectorio\Entities\BoolVariableData.cs" />
+    <Compile Include="Vectorio\Entities\CallbackType.cs" />
+    <Compile Include="Vectorio\Entities\CheckFlags.cs" />
+    <Compile Include="Vectorio\Entities\CreationFlags.cs" />
+    <Compile Include="Vectorio\Entities\EntityCreationData.cs" />
+    <Compile Include="Vectorio\Entities\EntityUtilities.cs" />
+    <Compile Include="Vectorio\Entities\EventBuilder.cs" />
+    <Compile Include="Vectorio\Entities\FloatVariableData.cs" />
+    <Compile Include="Vectorio\Entities\IntVariableData.cs" />
+    <Compile Include="Vectorio\Entities\OnCreationCallback.cs" />
+    <Compile Include="Vectorio\Entities\PipState.cs" />
+    <Compile Include="Vectorio\Entities\StringVariableData.cs" />
+    <Compile Include="Vectorio\Entities\SyncType.cs" />
+    <Compile Include="Vectorio\Entities\VariableContainer.cs" />
+    <Compile Include="Vectorio\Entities\VariableData.cs" />
+    <Compile Include="Vectorio\Entities\VariableDataConverter.cs" />
+    <Compile Include="Vectorio\Entities\VariableObject.cs" />
+    <Compile Include="Vectorio\Entities\VariableTypes.cs" />
+    <Compile Include="Vectorio\Formatting\Formatter.cs" />
+    <Compile Include="Vectorio\Generation\BiomeData.cs" />
+    <Compile Include="Vectorio\Generation\WorldFeature.cs" />
+    <Compile Include="Vectorio\Generation\WorldSpawner.cs" />
+    <Compile Include="Vectorio\Grid\DecorationData.cs" />
+    <Compile Include="Vectorio\Grid\TileData.cs" />
+    <Compile Include="Vectorio\InputActions.cs" />
+    <Compile Include="Vectorio\Networking\FriendStatus.cs" />
+    <Compile Include="Vectorio\Networking\LobbyButton.cs" />
+    <Compile Include="Vectorio\Networking\NetUtilities.cs" />
+    <Compile Include="Vectorio\Networking\SteamUserInfo.cs" />
+    <Compile Include="Vectorio\Networking\User.cs" />
+    <Compile Include="Vectorio\PhasmaUI\Button.cs" />
+    <Compile Include="Vectorio\PhasmaUI\Interface.cs" />
+    <Compile Include="Vectorio\PhasmaUI\UI_ResearchWindow.cs" />
+    <Compile Include="Vectorio\PhasmaUI\UI_ResourceInfo.cs" />
+    <Compile Include="Vectorio\PhasmaUI\UI_ResourceList.cs" />
+    <Compile Include="Vectorio\PhasmaUI\UI_Singleton.cs" />
+    <Compile Include="Vectorio\PhasmaUI\UI_Window.cs" />
+    <Compile Include="Vectorio\Serialization\DataProcessor.cs" />
+    <Compile Include="Vectorio\Serialization\FileOperations.cs" />
+    <Compile Include="Vectorio\Settings\BaseSetting.cs" />
+    <Compile Include="Vectorio\Settings\Data\BaseSettingData.cs" />
+    <Compile Include="Vectorio\Settings\Data\FlagSettingData.cs" />
+    <Compile Include="Vectorio\Settings\Data\FloatSettingData.cs" />
+    <Compile Include="Vectorio\Settings\Data\IntSettingData.cs" />
+    <Compile Include="Vectorio\Settings\Data\VectorSettingData.cs" />
+    <Compile Include="Vectorio\Settings\FlagSetting.cs" />
+    <Compile Include="Vectorio\Settings\FloatSetting.cs" />
+    <Compile Include="Vectorio\Settings\IntSetting.cs" />
+    <Compile Include="Vectorio\Settings\KeybindSetting.cs" />
+    <Compile Include="Vectorio\Settings\VectorSetting.cs" />
+    <Compile Include="Vectorio\Stats\ModifierSocket.cs" />
+    <Compile Include="Vectorio\Stats\Stat.cs" />
+    <Compile Include="Vectorio\Stats\StatFloat.cs" />
+    <Compile Include="Vectorio\Stats\StatInt.cs" />
+    <Compile Include="Vectorio\Stats\StatManager.cs" />
+    <Compile Include="Vectorio\Stats\StatModifier.cs" />
+    <Compile Include="Vectorio\Stats\StatType.cs" />
+    <Compile Include="Vectorio\Utilities\SerializedDictionary.cs" />
+    <Compile Include="Vectorio\Utilities\SpatialHashing.cs" />
+    <Compile Include="Vectorio\Utilities\Utilities.cs" />
+    <Compile Include="VolumeManager.cs" />
+    <Compile Include="Wall.cs" />
+    <Compile Include="WallData.cs" />
+    <Compile Include="WallPiece.cs" />
+    <Compile Include="WelcomeScreen.cs" />
+    <Compile Include="WorldGenerator.cs" />
+    <Compile Include="WorldText.cs" />
+    <Compile Include="XNode\Node.cs" />
+    <Compile Include="XNode\NodeDataCache.cs" />
+    <Compile Include="XNode\NodeGraph.cs" />
+    <Compile Include="XNode\NodePort.cs" />
+    <Compile Include="XNode\SceneGraph.2.cs" />
+    <Compile Include="XNode\SceneGraph.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
